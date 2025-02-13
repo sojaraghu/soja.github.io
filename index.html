@@ -58,26 +58,27 @@
                         }
                     }
 
-                    const BrowserIpAddress = getIPAddress();
-                    console.log('BrowserIpAddress>>>>' + BrowserIpAddress);
+                    getIPAddress().then(BrowserIpAddress => {
+                        console.log('BrowserIpAddress>>>>' + BrowserIpAddress);
 
-                    embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-                        'Browser_Name': browserName,
-                        'Browser_Language': browserLanguage,
-                        'Browser_Platform': browserPlatform,
-                        'Case_Subject': 'CRM test subject - billing issue from MIAW',
-                        'Language_Code': 'en',
-                        'Territory_Code': 'us',
-                        'Case_Classification': 'caseClassification value',
-                        'Case_ServiceType': 'TV',
-                        'Case_Type': 'Technical Problem',
-                        'Contact_ID': '',
-                        'Last_Article_Viewed': 'https://www.peacocktv.com/help/article/how-do-i-get-peacock',
-                        'Logged_In_Status': 'false',
-                        'Customer_Tracking_ID': '234729348204982',
-                        'Page_URL': 'https://www.peacocktv.com/help/article/how-do-i-get-peacock',
-                        'MarketingCloud_Visitor_ID': '234j3453lk2343',
-                        'Browser_Ip_Address': BrowserIpAddress
+                        embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+                            'Browser_Name': browserName,
+                            'Browser_Language': browserLanguage,
+                            'Browser_Platform': browserPlatform,
+                            'Case_Subject': 'CRM test subject - billing issue from MIAW',
+                            'Language_Code': 'en',
+                            'Territory_Code': 'us',
+                            'Case_Classification': 'caseClassification value',
+                            'Case_ServiceType': 'TV',
+                            'Case_Type': 'Technical Problem',
+                            'Contact_ID': '',
+                            'Last_Article_Viewed': 'https://www.peacocktv.com/help/article/how-do-i-get-peacock',
+                            'Logged_In_Status': 'false',
+                            'Customer_Tracking_ID': '234729348204982',
+                            'Page_URL': 'https://www.peacocktv.com/help/article/how-do-i-get-peacock',
+                            'MarketingCloud_Visitor_ID': '234j3453lk2343',
+                            'Browser_Ip_Address': BrowserIpAddress
+                        });
                     });
                 });
 
