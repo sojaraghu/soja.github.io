@@ -81,6 +81,7 @@
 
                 var shouldChatDisable = true;
                 embedded_svc.addEventHandler("onAgentRichMessage", function(data) {
+                    console.log('inside chatbot event block');
                     var chasitorText = document.querySelector(".chasitorText"); // Or your selector
                     if (chasitorText && shouldChatDisable) {
                         chasitorText.hidden = true; // Or chasitorText.style.display = 'none';
