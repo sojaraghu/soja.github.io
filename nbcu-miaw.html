@@ -80,7 +80,8 @@
                 });
 
                 var shouldChatDisable = true;
-                window.addEventHandler("onAgentRichMessage", function(data) {
+                window.addEventListener("onEmbeddedMessagingReady", async () => {
+                window.addEventHandler("onAgentRichMessage", async () => {
                     console.log('inside chatbot event block');
                     var chasitorText = document.querySelector(".chasitorText"); // Or your selector
                     if (chasitorText && shouldChatDisable) {
@@ -89,7 +90,7 @@
                     }
                 });
 
-                window.addEventHandler("onChatTransferInitiated", function(data) {
+                window.addEventHandler("onChatTransferInitiated",  async () => {
                     var chasitorText = document.querySelector(".chasitorText"); // Or your selector
                     if (chasitorText) {
                         chasitorText.hidden = false; // Or chasitorText.style.display = 'block';
