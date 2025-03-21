@@ -17,11 +17,12 @@
                 embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
                 let shouldChatDisable = true;
                 console.log('intial message');
-                embeddedservice_bootstrap.prechatAPI.on("onAgentRichMessage", async () => {
-                    console.log('inside chatbot event block');
-                    let chasitorText = document.querySelector(".embeddedMessagingInputTextAreaWrapper");
-                    if (chasitorText) {
-                        chasitorText.hidden = true;
+                window.addEventListener("onEmbeddedMessagingReady", async () => {
+                    console.log("Inside Prechat API!!");
+                
+                    let inputBox = document.querySelector(".embeddedMessagingInputTextAreaWrapper");
+                    if (inputBox) {
+                        inputBox.style.display = "none"; // Hide input field on load
                     }
                 });
                 /*window.addEventHandler("onAgentRichMessage", async () => {
