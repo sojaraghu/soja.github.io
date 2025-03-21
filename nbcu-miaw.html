@@ -15,22 +15,8 @@
         function initEmbeddedMessaging() {
             try {
                 embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-                var shouldChatDisable = true;
-                window.addEventHandler("onAgentRichMessage", async () => {
-                    console.log('inside chatbot event block');
-                    var chasitorText = document.querySelector(".chasitorText"); // Or your selector
-                    if (chasitorText && shouldChatDisable) {
-                        chasitorText.hidden = true; // Or chasitorText.style.display = 'none';
-                        shouldChatDisable = false;
-                    }
-                });
-
-                window.addEventHandler("onChatTransferInitiated",  async () => {
-                    var chasitorText = document.querySelector(".chasitorText"); // Or your selector
-                    if (chasitorText) {
-                        chasitorText.hidden = false; // Or chasitorText.style.display = 'block';
-                    }
-                });
+                embeddedservice_bootstrap.settings.enableUserInputForConversationWithBot = false;
+                
                 window.addEventListener("onEmbeddedMessagingReady", async () => {
                     console.log("Inside Prechat API!!");
                     const fetchBrowserName = () => {
