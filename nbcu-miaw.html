@@ -15,7 +15,21 @@
         function initEmbeddedMessaging() {
             try {
                 embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-                embeddedservice_bootstrap.settings.restrictSessionOnMessagingChannel = true;
+                var shouldChatDisable = true;
+                embedded_svc.addEventHandler("onAgentRichMessage", function(data) {
+                    var chasitorText = document.querySelector(".embeddedMessagingInputTextAreaWrapper"); // Or your selector
+                    if (chasitorText && shouldChatDisable) {
+                        chasitorText.style.display = 'none'; // Or chasitorText.style.display = 'none';
+                        shouldChatDisable = false;
+                    }
+                });
+
+                embedded_svc.addEventHandler("onChatTransferInitiated", function(data) {
+                    var chasitorText = document.querySelector(".embeddedMessagingInputTextAreaWrapper"); // Or your selector
+                    if (chasitorText) {
+                        chasitorText.style.display = 'block'; // Or chasitorText.style.display = 'block';
+                    }
+                });
                 
                 window.addEventListener("onEmbeddedMessagingReady", async () => {
                     console.log("Inside Prechat API!!");
