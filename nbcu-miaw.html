@@ -16,8 +16,12 @@
             try {
                 embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
                 let shouldChatDisable = true;
-                embedded_svc.addEventHandler("onAgentRichMessage", function(data) {
+                console.log('intial message');
+                window.addEventHandler("onAgentRichMessage", function(data) {
+                    console.log('in onAgentRichMessage');
                     let inputBox = document.querySelector(".embeddedMessagingInputTextAreaWrapper");
+                    console.log('inputBox',inputBox);
+                    console.log('inside  addEventHandler');
                     if (inputBox && shouldChatDisable) {
                         inputBox.style.display = "none";
                         shouldChatDisable = false;
