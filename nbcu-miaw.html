@@ -17,7 +17,14 @@
                 embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
                 let shouldChatDisable = true;
                 console.log('intial message');
-                window.addEventHandler("onAgentRichMessage", async () => {
+                embeddedservice_bootstrap.prechatAPI.on("onAgentRichMessage", async () => {
+                    console.log('inside chatbot event block');
+                    let chasitorText = document.querySelector(".embeddedMessagingInputTextAreaWrapper");
+                    if (chasitorText) {
+                        chasitorText.hidden = true;
+                    }
+                });
+                /*window.addEventHandler("onAgentRichMessage", async () => {
                     console.log('in onAgentRichMessage');
                     let inputBox = document.querySelector(".embeddedMessagingInputTextAreaWrapper");
                     console.log('inputBox',inputBox);
@@ -34,7 +41,7 @@
                     if (inputBox ) {
                         chasitorText.style.display = 'block'; // Or chasitorText.style.display = 'block';
                     }
-               });
+               });*/
                 
                 window.addEventListener("onEmbeddedMessagingReady", async () => {
                     console.log("Inside Prechat API!!");
