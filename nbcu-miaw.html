@@ -17,13 +17,31 @@
                 embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
                 let shouldChatDisable = true;
                 console.log('intial message');
-                window.addEventListener("onAgentRichMessage", async () => {
+                /* window.addEventListener("onAgentRichMessage", async () => {
                     console.log("Inside Prechat API!!");
                 
                     let inputBox = document.querySelector(".embeddedMessagingInputFooterTextArea");
                     if (inputBox) {
                         inputBox.style.display = "none"; // Hide input field on load
                     }
+                });*/
+                function hideChatInput() {
+                    let inputBox = document.querySelector(".embeddedMessagingInputTextAreaWrapper");
+                    if (inputBox) {
+                        inputBox.style.display = "none";
+                        console.log("Chat input hidden for bot chat");
+                    }
+                }
+                // Observe chat window changes for bot messages
+                const chatObserver = new MutationObserver((mutations) => {
+                    mutations.forEach((mutation) => {
+                        if (mutation.type === "childList") {
+                            let botMessages = document.querySelectorAll(".chatMessageBot"); // Change selector based on actual bot message class
+                            if (botMessages.length > 0) {
+                                hideChatInput();
+                            }
+                        }
+                    });
                 });
                 /*window.addEventHandler("onAgentRichMessage", async () => {
                     console.log('in onAgentRichMessage');
