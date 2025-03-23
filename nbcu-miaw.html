@@ -35,12 +35,14 @@
         const disableLaunchChatTextbox = async () =>  {
             setTimeout(() => {
                 let chatIframe = document.getElementById("embeddedMessagingFrame"); // Get the iframe by ID
-    
+                console.log('chatIframe',chatIframe);
                 if (chatIframe) {
                     let chatDoc = chatIframe.contentDocument || chatIframe.contentWindow.document;
-                    
+                    console.log('chatDoc',chatDoc);
                     if (chatDoc) {
                         let inputBox = chatDoc.querySelector(".embeddedMessagingInputFooterTextArea");
+                        console.log('inputBox',inputBox);
+                        
                         if (inputBox) {
                             inputBox.style.display = "none"; // Hide chat input
                             console.log("Chat input hidden inside iframe!");
