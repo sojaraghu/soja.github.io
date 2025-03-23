@@ -12,6 +12,7 @@
     </center>
 
     <script type='text/javascript'>
+        
         function initEmbeddedMessaging() {
             try {
                 embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
@@ -41,9 +42,11 @@
                 
                 window.addEventListener("onEmbeddedMessagingReady", async () => {
                     console.log("Inside Prechat API!!");
-                    /*let botMessages = document.querySelectorAll(".chatMessageBot"); // Change selector based on actual bot message class
+                    let botMessages = document.querySelectorAll(".embeddedMessagingInputFooterTextArea"); // Change selector based on actual bot message class
                             if (botMessages.length > 0) {
-                                
+                                console.log("embeddedMessagingInputFooterTextArea check!!");
+                                inputBox.style.display = "none"; // Hide input field on load
+                 
                             }
                     launchChat();*/
                     const fetchBrowserName = () => {
@@ -123,38 +126,6 @@
         }
     </script>
     <script type='text/javascript' src='https://ott-nbcu--miaw.sandbox.my.site.com/ESWHelpMessaging1738150210771/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-    <button id="launchChatButton" onclick="launchChat()">Click to contact support</button>
-
-// Call Launch Chat API.
-<script>
-    function launchChat() {
-        embeddedservice_bootstrap.utilAPI.launchChat()
-            .then(() => {
-                // Success handler used to perform actions
-                // when the chat client launches successfully.
-                // For example, create a method that disables the launch chat button.
-                disableLaunchChatButton();
-            }).catch(() => {
-                // Error handler used to perform actions
-                // if the chat client fails to launch.
-                // For example, create a method that hides the launch chat button.
-                hideLaunchChatButton();
-            }).finally(() => {
-                // Finally handler used to perform any clean-up actions
-                // regardless of whether the chat client launches successfully or not.
-                // For example, create a method that logs the user’s attempt to chat.
-                logEndUserAttemptToChat();
-            });
-    }
-    const disableLaunchChatButton = async () =>  {
-                        console.log("Inside disableLaunchChatTextbox!!");
-                    
-                        let inputBox = document.querySelector(".embeddedMessagingInputFooterTextArea");
-                        if (inputBox) {
-                            inputBox.style.display = "none"; // Hide input field on load
-                        }
-    }
-    </script>
-        
+   
 </body>
 </html>
