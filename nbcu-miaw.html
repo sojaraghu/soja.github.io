@@ -33,19 +33,22 @@
                 });
         }
         const disableLaunchChatTextbox = async () =>  {
-                    setTimeout(() => {
-                        console.log("Inside disableLaunchChatTextbox!!");
-                        let inputBox = document.querySelector(".embeddedMessagingInputFooterTextArea");
-                        console.log("inputBox:", inputBox);
-    
-                        if (inputBox) {
-                            inputBox.style.display = "none"; // Hide input field
-                            console.log("Chat input hidden!");
-                        } else {
-                            console.log("Chat input NOT found, trying again...");
-                        }
-                    }, 3000);
+            const observer = new MutationObserver(() => {
+                let inputBox = document.querySelector(".embeddedMessagingInputFooterTextArea");
+                if (inputBox) {
+                    inputBox.style.display = "none"; // Hide input field
+                    console.log("Chat input hidden!");
+                    observer.disconnect(); // Stop observing once found
+                }
+            });
+        
+
+          // Observe the chat container for changes
+         const chatContainer = document.querySelector("body"); // Change this if there's a specific chat wrapper
+        if (chatContainer) {
+            observer.observe(chatContainer, { childList: true, subtree: true });
         }
+    }
         function initEmbeddedMessaging() {
             try {
                 embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
