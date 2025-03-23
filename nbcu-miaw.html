@@ -12,6 +12,17 @@
     </center>
 
   <script type='text/javascript'>
+
+       function hideChatInput() {
+           console.error("indise hideChatInput.");
+            let chatIframe = document.getElementById("embeddedMessagingFrame");
+            if (chatIframe) {
+                chatIframe.contentWindow.postMessage({ action: "hideChatInput" }, "*");
+                console.log("Message sent to iframe to hide chat input.");
+            } else {
+                console.error("Chat iframe not found.");
+            }
+        }
         function launchChat() {
             embeddedservice_bootstrap.utilAPI.launchChat()
                 .then(() => {
@@ -89,12 +100,13 @@
                 
                 window.addEventListener("onEmbeddedMessagingReady", async () => {
                     console.log("Inside Prechat API!!");
-                    let inputBox = document.querySelectorAll(".embeddedMessagingInputFooterTextArea"); // Change selector based on actual bot message class
+                    hideChatInput(); 
+                    /*let inputBox = document.querySelectorAll(".embeddedMessagingInputFooterTextArea"); // Change selector based on actual bot message class
                             if (inputBox.length > 0) {
                                 console.log("embeddedMessagingInputFooterTextArea check!!");
                                 inputBox.style.display = "none"; // Hide input field on load
                  
-                            }
+                            }*/
                     //launchChat();
                     const fetchBrowserName = () => {
                         let browserInfo = navigator.userAgent;
@@ -153,7 +165,8 @@
                         'Page_URL': 'https://www.peacocktv.com/help/article/how-do-i-get-peacock',
                         'MarketingCloud_Visitor_ID': '234j3453lk2343',
                         'Browser_Ip_Address': browserIpAddress,
-                        'Get_In_Touch': 'False'
+                        'Get_In_Touch': 'False',
+                        'Disable_Chatbox': 'true'
                     });
                 });
 
