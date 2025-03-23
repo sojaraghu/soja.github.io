@@ -24,7 +24,7 @@
                     if (inputBox) {
                         inputBox.style.display = "none"; // Hide input field on load
                     }
-                };
+                }
                 
                /* window.addEventHandler("onAgentRichMessage", async () => {
                     console.log('in onAgentRichMessage');
@@ -38,24 +38,24 @@
                 });*/
 
                function launchChat() {
-                embeddedservice_bootstrap.utilAPI.launchChat()
-                .then(() => {
-                    // Success handler used to perform actions
-                    // when the chat client launches successfully.
-                    // For example, create a method that disables the launch chat button.
-                    disableLaunchChatTextbox();
-                }).catch(() => {
-                    // Error handler used to perform actions
-                    // if the chat client fails to launch.
-                    // For example, create a method that hides the launch chat button.
-                    disableLaunchChatTextbox();
-                }).finally(() => {
-                    // Finally handler used to perform any clean-up actions
-                    // regardless of whether the chat client launches successfully or not.
-                    // For example, create a method that logs the user’s attempt to chat.
-                    disableLaunchChatTextbox();
-                });
-    }
+                    embeddedservice_bootstrap.utilAPI.launchChat()
+                    .then(() => {
+                        // Success handler used to perform actions
+                        // when the chat client launches successfully.
+                        // For example, create a method that disables the launch chat button.
+                        disableLaunchChatTextbox();
+                    }).catch(() => {
+                        // Error handler used to perform actions
+                        // if the chat client fails to launch.
+                        // For example, create a method that hides the launch chat button.
+                        disableLaunchChatTextbox();
+                    }).finally(() => {
+                        // Finally handler used to perform any clean-up actions
+                        // regardless of whether the chat client launches successfully or not.
+                        // For example, create a method that logs the user’s attempt to chat.
+                        disableLaunchChatTextbox();
+                    });
+               }
                 
                 window.addEventListener("onEmbeddedMessagingReady", async () => {
                     console.log("Inside Prechat API!!");
