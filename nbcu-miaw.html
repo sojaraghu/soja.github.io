@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="https://github.com/sojaraghu/soja.github.io/disableChat.js"></script>
     <title>NBCU MIAW </title>
 </head>
 <body>
@@ -13,7 +12,7 @@
     </center>
 
   <script type='text/javascript'>
-       /* function launchChat() {
+        function launchChat() {
             embeddedservice_bootstrap.utilAPI.launchChat()
                 .then(() => {
                     console.log('launchchat');
@@ -49,7 +48,7 @@
         if (chatContainer) {
             observer.observe(chatContainer, { childList: true, subtree: true });
         }
-    }*/
+    }
         function initEmbeddedMessaging() {
             try {
                 embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
@@ -163,6 +162,6 @@
         }
     </script>
     <script type='text/javascript' src='https://ott-nbcu--miaw.sandbox.my.site.com/ESWHelpMessaging1738150210771/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-    
+    <button id="launchChatButton" onclick="launchChat()">Click to contact support</button>
 </body>
 </html>
