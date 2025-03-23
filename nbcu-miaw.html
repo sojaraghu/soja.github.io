@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="https://yourcdn.com/path-to-js/disableChat.js"></script>
     <title>NBCU MIAW </title>
 </head>
 <body>
@@ -11,7 +12,7 @@
         <img src="https://imageservice.disco.peacocktv.com/uuid/35569ad4-a9a9-3567-b70a-47b03fabd9ff/TITLE_ART_3_4/414/552?language=eng&amp;territory=US&amp;proposition=NBCUOTT&amp;version=136e3f82-c68a-3301-b648-7801705fb9e7" alt="The Wild MIAW" loading="eager" class="tilestyles__Image-sc-e42v4u-3 jVBkcG" />
     </center>
 
-    <script type='text/javascript'>
+    /*<script type='text/javascript'>
         function launchChat() {
             embeddedservice_bootstrap.utilAPI.launchChat()
                 .then(() => {
@@ -48,7 +49,7 @@
         if (chatContainer) {
             observer.observe(chatContainer, { childList: true, subtree: true });
         }
-    }
+    }*/
         function initEmbeddedMessaging() {
             try {
                 embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
@@ -162,6 +163,6 @@
         }
     </script>
     <script type='text/javascript' src='https://ott-nbcu--miaw.sandbox.my.site.com/ESWHelpMessaging1738150210771/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-    <button id="launchChatButton" onclick="launchChat()">Click to contact support</button>
+    
 </body>
 </html>
