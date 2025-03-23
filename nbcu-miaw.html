@@ -33,22 +33,30 @@
                 });
         }
         const disableLaunchChatTextbox = async () =>  {
-            const observer = new MutationObserver(() => {
-                let inputBox = document.querySelector(".embeddedMessagingInputFooterTextArea");
-                if (inputBox) {
-                    inputBox.style.display = "none"; // Hide input field
-                    console.log("Chat input hidden!");
-                    observer.disconnect(); // Stop observing once found
+            setTimeout(() => {
+                let chatIframe = document.getElementById("embeddedMessagingFrame"); // Get the iframe by ID
+    
+                if (chatIframe) {
+                    let chatDoc = chatIframe.contentDocument || chatIframe.contentWindow.document;
+                    
+                    if (chatDoc) {
+                        let inputBox = chatDoc.querySelector(".embeddedMessagingInputFooterTextArea");
+                        if (inputBox) {
+                            inputBox.style.display = "none"; // Hide chat input
+                            console.log("Chat input hidden inside iframe!");
+                        } else {
+                            console.log("Chat input not found inside iframe.");
+                        }
+                    }
+                } else {
+                    console.log("Chat iframe not found.");
                 }
-            });
+            }, 3000);
+            
         
 
-          // Observe the chat container for changes
-         const chatContainer = document.querySelector("body"); // Change this if there's a specific chat wrapper
-        if (chatContainer) {
-            observer.observe(chatContainer, { childList: true, subtree: true });
-        }
-    }
+         
+       }
         function initEmbeddedMessaging() {
             try {
                 embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
