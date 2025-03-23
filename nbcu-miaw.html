@@ -43,7 +43,7 @@
                 window.addEventListener("onEmbeddedMessagingReady", async () => {
                     console.log("Inside Prechat API!!");
                     let inputBox = document.querySelectorAll(".embeddedMessagingInputFooterTextArea"); // Change selector based on actual bot message class
-                            if (botMessages.length > 0) {
+                            if (inputBox.length > 0) {
                                 console.log("embeddedMessagingInputFooterTextArea check!!");
                                 inputBox.style.display = "none"; // Hide input field on load
                  
