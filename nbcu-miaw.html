@@ -19,7 +19,7 @@
                     // Success handler used to perform actions
                     // when the chat client launches successfully.
                     // For example, create a method that disables the launch chat button.
-                    disableLaunchChatButton();
+                    disableLaunchChatTextbox();
                 }).catch(() => {
                     // Error handler used to perform actions
                     // if the chat client fails to launch.
@@ -31,6 +31,14 @@
                     // For example, create a method that logs the user’s attempt to chat.
                     logEndUserAttemptToChat();
                 });
+        }
+        const disableLaunchChatTextbox = async () =>  {
+                    console.log("Inside disableLaunchChatTextbox!!");
+                
+                    let inputBox = document.querySelector(".embeddedMessagingInputFooterTextArea");
+                    if (inputBox) {
+                        inputBox.style.display = "none"; // Hide input field on load
+                    }
         }
         function initEmbeddedMessaging() {
             try {
