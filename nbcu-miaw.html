@@ -17,33 +17,16 @@
                 embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
                 let shouldChatDisable = true;
                 console.log('intial message');
-                /* window.addEventListener("onAgentRichMessage", async () => {
-                    console.log("Inside Prechat API!!");
+                const disableLaunchChatTextbox = async () =>  {
+                    console.log("Inside disableLaunchChatTextbox!!");
                 
                     let inputBox = document.querySelector(".embeddedMessagingInputFooterTextArea");
                     if (inputBox) {
                         inputBox.style.display = "none"; // Hide input field on load
                     }
-                });*/
-                function hideChatInput() {
-                    let inputBox = document.querySelector(".embeddedMessagingInputFooterTextArea");
-                    if (inputBox) {
-                        inputBox.style.display = "none";
-                        console.log("Chat input hidden for bot chat");
-                    }
-                }
-                // Observe chat window changes for bot messages
-                const chatObserver = new MutationObserver((mutations) => {
-                    mutations.forEach((mutation) => {
-                        if (mutation.type === "childList") {
-                            let botMessages = document.querySelectorAll(".chatMessageBot"); // Change selector based on actual bot message class
-                            if (botMessages.length > 0) {
-                                hideChatInput();
-                            }
-                        }
-                    });
                 });
-                /*window.addEventHandler("onAgentRichMessage", async () => {
+                
+                window.addEventHandler("onAgentRichMessage", async () => {
                     console.log('in onAgentRichMessage');
                     let inputBox = document.querySelector(".embeddedMessagingInputTextAreaWrapper");
                     console.log('inputBox',inputBox);
@@ -54,13 +37,25 @@
                     }
                 });
 
-                window.addEventHandler("onChatTransferInitiated", async () => {
-                    let inputBox = document.querySelector(".embeddedMessagingInputTextAreaWrapper");
-                    
-                    if (inputBox ) {
-                        chasitorText.style.display = 'block'; // Or chasitorText.style.display = 'block';
-                    }
-               });*/
+               function launchChat() {
+                embeddedservice_bootstrap.utilAPI.launchChat()
+                .then(() => {
+                    // Success handler used to perform actions
+                    // when the chat client launches successfully.
+                    // For example, create a method that disables the launch chat button.
+                    disableLaunchChatTextbox();
+                }).catch(() => {
+                    // Error handler used to perform actions
+                    // if the chat client fails to launch.
+                    // For example, create a method that hides the launch chat button.
+                    disableLaunchChatTextbox();
+                }).finally(() => {
+                    // Finally handler used to perform any clean-up actions
+                    // regardless of whether the chat client launches successfully or not.
+                    // For example, create a method that logs the user’s attempt to chat.
+                    disableLaunchChatTextbox();
+                });
+    }
                 
                 window.addEventListener("onEmbeddedMessagingReady", async () => {
                     console.log("Inside Prechat API!!");
@@ -68,6 +63,7 @@
                             if (botMessages.length > 0) {
                                 hideChatInput();
                             }
+                    
                     const fetchBrowserName = () => {
                         let browserInfo = navigator.userAgent;
                         let browserName;
