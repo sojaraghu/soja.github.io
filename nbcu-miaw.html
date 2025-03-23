@@ -33,13 +33,18 @@
                 });
         }
         const disableLaunchChatTextbox = async () =>  {
-                    console.log("Inside disableLaunchChatTextbox!!");
-                
-                    let inputBox = document.querySelector(".embeddedMessagingInputFooterTextArea.slds-textarea.slds-p-around_x-small");
-                     console.log("inputBox",inputBox);
-                    if (inputBox) {
-                        inputBox.style.display = "none"; // Hide input field on load
-                    }
+                    setTimeout(() => {
+                        console.log("Inside disableLaunchChatTextbox!!");
+                        let inputBox = document.querySelector(".embeddedMessagingInputFooterTextArea");
+                        console.log("inputBox:", inputBox);
+    
+                        if (inputBox) {
+                            inputBox.style.display = "none"; // Hide input field
+                            console.log("Chat input hidden!");
+                        } else {
+                            console.log("Chat input NOT found, trying again...");
+                        }
+                    }, 3000);
         }
         function initEmbeddedMessaging() {
             try {
