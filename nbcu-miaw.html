@@ -23,7 +23,7 @@
                 console.error("Chat iframe not found.");
             }
         }
-        function launchChat() {
+        /*function launchChat() {
             embeddedservice_bootstrap.utilAPI.launchChat()
                 .then(() => {
                     console.log('launchchat');
@@ -47,7 +47,7 @@
             setTimeout(() => {
                 let chatIframe = document.getElementById("embeddedMessagingFrame"); // Get the iframe by ID
                 chatIframe.style.display = "none";
-               /* console.log('chatIframe',chatIframe);
+               console.log('chatIframe',chatIframe);
                 if (chatIframe) {
                     let chatDoc = chatIframe.contentDocument || chatIframe.contentWindow.document;
                     console.log('chatDoc',chatDoc);
@@ -64,13 +64,13 @@
                     }
                 } else {
                     console.log("Chat iframe not found.");
-                }*/
+                }
             }, 3000);
             
         
 
          
-       }
+       } */
         function initEmbeddedMessaging() {
             try {
                 embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
@@ -186,6 +186,6 @@
         }
     </script>
     <script type='text/javascript' src='https://ott-nbcu--miaw.sandbox.my.site.com/ESWHelpMessaging1738150210771/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-    <button id="launchChatButton" onclick="launchChat()">Click to contact support</button>
+    
 </body>
 </html>
