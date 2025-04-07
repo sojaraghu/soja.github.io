@@ -76,6 +76,9 @@
                 embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
                 let shouldChatDisable = true;
                 console.log('intial message');
+                document.addEventListener("onEmbeddedMessagingConversationParticipantChanged", (event) => {
+                        console.log("Conversation participant changed:", event);
+                });
                 /*const disableLaunchChatTextbox = async () =>  {
                     console.log("Inside disableLaunchChatTextbox!!");
                 
