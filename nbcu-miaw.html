@@ -99,8 +99,16 @@
                
                 
                 window.addEventListener("onEmbeddedMessagingReady", async () => {
-                    document.addEventListener("onEmbeddedMessagingConversationParticipantChanged", function (event) {
+                    document.addEventListener("onEmbeddedMessagingConversationStarted", (event) => {
+                        console.log("Conversation started:", event);
+                    });
+                
+                    document.addEventListener("onEmbeddedMessagingConversationParticipantChanged", (event) => {
                         console.log("Conversation participant changed:", event);
+                    });
+                
+                    document.addEventListener("onEmbeddedMessagingStateChanged", (event) => {
+                        console.log("Messaging state changed:", event);
                     });
                     console.log("Inside Prechat API!!");
                     hideChatInput(); 
