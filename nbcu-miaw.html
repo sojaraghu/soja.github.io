@@ -99,11 +99,10 @@
                
                 
                 window.addEventListener("onEmbeddedMessagingReady", async () => {
-                    embeddedservice_bootstrap.prechatAPI.setConversationListener(
+                    embeddedservice_bootstrap.registerEventListener(
                         "onEmbeddedMessagingConversationParticipantChanged",
                         function (event) {
-                            console.log("Conversation participant changed:", event);
-                            // Handle the event, e.g., update UI, trigger notifications
+                            console.log("Agent changed:", event);
                         }
                     );
                     console.log("Inside Prechat API!!");
