@@ -99,6 +99,13 @@
                
                 
                 window.addEventListener("onEmbeddedMessagingReady", async () => {
+                    embeddedservice_bootstrap.prechatAPI.setConversationListener(
+                        "onEmbeddedMessagingConversationParticipantChanged",
+                        function (event) {
+                            console.log("Conversation participant changed:", event);
+                            // Handle the event, e.g., update UI, trigger notifications
+                        }
+                    );
                     console.log("Inside Prechat API!!");
                     hideChatInput(); 
                     /*let inputBox = document.querySelectorAll(".embeddedMessagingInputFooterTextArea"); // Change selector based on actual bot message class
